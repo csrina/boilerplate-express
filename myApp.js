@@ -20,7 +20,6 @@ app.get("/json-v1", (_, res) => res.json({"message": "Hello json"}));
 //6. Use the env file
 app.get("/json", (_, res) => {
     var hw = "Hello json";
-    console.log(process.env.MESSAGE_STYLE);
     res.json({"message": (process.env.MESSAGE_STYLE === "uppercase")? hw.toUpperCase() : hw})
 });
 
