@@ -1,6 +1,11 @@
 var express = require('express');
 var app = express();
 
-console.log('Hello World');
+// 1. Meet the Node consolePassed
+console.log("Hello World");
+
+//2. Start a Working Express Server
+app.get("/", (req, res) => res.send("Hello Express"));
+
 
 module.exports = app;
