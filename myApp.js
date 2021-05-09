@@ -29,4 +29,10 @@ app.get("/json", (_, res) => {
     res.json({"message": (process.env.MESSAGE_STYLE === "uppercase")? hw.toUpperCase() : hw})
 });
 
+//8. Chain middleware to create a time server
+app.get("/now", (req, res, next) => {
+    req.time = new Date().toString();
+    next();
+}, (req, res) => res.json({"time": req.time}));
+
 module.exports = app;
