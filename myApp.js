@@ -35,4 +35,7 @@ app.get("/now", (req, res, next) => {
     next();
 }, (req, res) => res.json({"time": req.time}));
 
+//9. Get Route Parameter Input from the Client
+app.get("/:word/echo", (req, res) => res.json({"echo": req.params.word}));
+
 module.exports = app;
