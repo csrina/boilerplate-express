@@ -5,7 +5,6 @@ var app = express();
 
 //11. Get Data from POST Requests
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 
 //7. Implement a Root-level Request logger middleware
 app.use((req, res, next) => {
