@@ -3,7 +3,9 @@ var bodyParser = require('body-parser');
 var express = require('express');
 var app = express();
 
+//11. Get Data from POST Requests
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 //7. Implement a Root-level Request logger middleware
 app.use((req, res, next) => {
@@ -42,6 +44,7 @@ app.get("/now", (req, res, next) => {
 app.get("/:word/echo", (req, res) => res.json({"echo": req.params.word}));
 
 //10. Get Query Parameter Input from the Client
-app.get("/name", (req, res) => res.json({"name": `${req.query.first} ${req.query.last}`}));
+app.route("/name").get((req, res) => res.json({"name": `${req.query.first} ${req.query.last}`}))
+    .post((req, res) => res.json({"name": `${req.body.first} ${req.body.last}`}));
 
 module.exports = app;
