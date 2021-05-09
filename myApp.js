@@ -2,6 +2,12 @@ var express = require('express');
 var app = express();
 require('dotenv').config();
 
+//7. Implement a Root-level Request logger middleware
+app.use((req, res, next) => {
+    console.log(`${req.method} ${req.path} - ${req.ip}`);
+    next();
+})
+
 //4. serve static files
 app.use('/public', express.static(__dirname + '/public'));
 
